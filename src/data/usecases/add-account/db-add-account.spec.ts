@@ -1,5 +1,3 @@
-import { rejects } from "assert"
-
 import { Encrypter } from "../../protocols/encrypter"
 import { DbAddAccount } from "./db-add-account"
 
