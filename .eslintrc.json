@@ -65,7 +65,8 @@
       }
     ],
     "prettier/prettier": "error",
-    "semi": "off"
+    "semi": "off",
+    "max-classes-per-file": "off"
   },
   "settings": {
     "import/resolver": {
