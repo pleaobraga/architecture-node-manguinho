@@ -2205,7 +2205,7 @@
   "resolved" "https://registry.npmjs.org/fast-diff/-/fast-diff-1.2.0.tgz"
   "version" "1.2.0"
 
-"fast-glob@^3.1.1":
+"fast-glob@^3.1.1", "fast-glob@^3.2.6":
   "integrity" "sha512-GnLuqj/pvQ7pX8/L4J84nijv6sAnlwvSDpMkJi9i7nPmPxGtRPkBSStfvDW5l6nMdX9VWe+pkKWFTgD+vF2QSQ=="
   "resolved" "https://registry.npmjs.org/fast-glob/-/fast-glob-3.2.6.tgz"
   "version" "3.2.6"
