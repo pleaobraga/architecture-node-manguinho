@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express"
 
-export const contenType = (
+export const contentType = (
   req: Request,
   res: Response,
   next: NextFunction
