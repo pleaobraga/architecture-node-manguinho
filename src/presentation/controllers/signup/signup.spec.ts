@@ -199,7 +199,7 @@ describe("SignUp Controller", () => {
     expect(httpResponse).toEqual(serverError(new ServerError(null)))
   })
 
-  it("Should return 200 if vaild data is provided", async () => {
+  it("Should return 200 if valid data is provided", async () => {
     const { sut } = makeSut()
 
     const httpResponse = await sut.handle(makeFakeRequest())
@@ -214,5 +214,15 @@ describe("SignUp Controller", () => {
 
     await sut.handle(httpRequest)
     expect(validateSpy).toHaveBeenCalledWith(httpRequest.body)
+  })
+
+  it("Should return 400 if Validation return error", async () => {
+    const { sut, validationStub } = makeSut()
+    jest
+      .spyOn(validationStub, "validate")
+      .mockReturnValueOnce(new MissingParamError("any_field"))
+
+    const httpResponse = await sut.handle(makeFakeRequest())
+    expect(httpResponse).toEqual(badRequest(new MissingParamError("any_field")))
   })
 })
