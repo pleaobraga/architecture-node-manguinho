@@ -163,4 +163,20 @@ describe("DbAuthentication UseCase", () => {
 
     expect(generateSpy).toHaveBeenCalledWith("any_id")
   })
+
+  it("Should throw if HashCompare throws", async () => {
+    const { sut, tokenGeneratorStub } = makeSut()
+    jest
+      .spyOn(tokenGeneratorStub, "generate")
+      .mockReturnValueOnce(
+        new Promise((resolve, reject) => reject(new Error()))
+      )
+
+    const response = sut.auth({
+      email: "any_email@mail.com",
+      password: "any_password",
+    })
+
+    await expect(response).rejects.toThrow()
+  })
 })
