@@ -30,17 +30,21 @@ export class DbAuthentication implements Authentication {
       return null
     }
 
-    const compare = await this.hashCompare.compare(
+    const isValid = await this.hashCompare.compare(
       authentication.password,
       account.password
     )
 
-    if (!compare) {
+    if (!isValid) {
       return null
     }
 
-    await this.tokenGenerator.generate(account.id)
+    const accessToken = await this.tokenGenerator.generate(account.id)
 
-    return null
+    if (!accessToken) {
+      return null
+    }
+
+    return accessToken
   }
 }
