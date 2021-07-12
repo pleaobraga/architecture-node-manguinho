@@ -1,7 +1,7 @@
 import { rejects } from "assert/strict"
 
 import { AccountModel } from "../../../domain/models/accounts"
-import { LoadAccountByEmailRepository } from "../../protocols/load-account-by-email-repository"
+import { LoadAccountByEmailRepository } from "../../protocols/db/load-account-by-email-repository"
 import { DbAuthentication } from "./db-authentication"
 
 const makeFakeAccount = () => ({
