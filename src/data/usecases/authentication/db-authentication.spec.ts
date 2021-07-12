@@ -2,18 +2,19 @@ import { AccountModel } from "../../../domain/models/accounts"
 import { LoadAccountByEmailRepository } from "../../protocols/load-account-by-email-repository"
 import { DbAuthentication } from "./db-authentication"
 
-const makeLoadAccountByEmail = (): any => {
+const makeFakeAccount = () => ({
+  id: "any_id",
+  name: "any_name",
+  email: "any_email@mail.com",
+  password: "any_password",
+})
+
+const makeLoadAccountByEmail = (): LoadAccountByEmailRepository => {
   class LoadAccountByEmailRepositoryStub
     implements LoadAccountByEmailRepository
   {
     async load(email: string): Promise<AccountModel> {
-      const account = {
-        id: "any_id",
-        name: "any_name",
-        email: "any_email@mail.com",
-        password: "any_password",
-      }
-      return new Promise((resolve) => resolve(account))
+      return new Promise((resolve) => resolve(makeFakeAccount()))
     }
   }
 
@@ -21,7 +22,7 @@ const makeLoadAccountByEmail = (): any => {
 }
 
 interface SutTypes {
-  sut: any
+  sut: DbAuthentication
   loadAccountByEmailRepositoryStub: LoadAccountByEmailRepository
 }
 
