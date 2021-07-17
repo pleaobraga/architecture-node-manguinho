@@ -1,16 +1,13 @@
 import { InvalidParamError, MissingParamError } from "../../errors"
 import { EmailValidator } from "../../protocols/email-validator"
-import { badRequest } from "../http/http-helper"
 import { Validation } from "../../protocols/validation"
+import { badRequest } from "../http/http-helper"
 
 export class EmailValidation implements Validation {
-  private readonly fieldName: string
-  private readonly emailValidator: EmailValidator
-
-  constructor(fieldName: string, emailValidator: EmailValidator) {
-    this.fieldName = fieldName
-    this.emailValidator = emailValidator
-  }
+  constructor(
+    private readonly fieldName: string,
+    private readonly emailValidator: EmailValidator
+  ) {}
 
   validate(input: any): Error | null {
     const isValid = this.emailValidator.isValid(input[this.fieldName])
