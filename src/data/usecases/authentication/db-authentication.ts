@@ -49,7 +49,10 @@ export class DbAuthentication implements Authentication {
       return null
     }
 
-    await this.updateAccessTokenRepository.update(account.id, accessToken)
+    await this.updateAccessTokenRepository.updateAccessToken(
+      account.id,
+      accessToken
+    )
 
     return accessToken
   }
