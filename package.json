@@ -3,7 +3,9 @@
   "version": "1.1.0",
   "main": "index.js",
   "scripts": {
-    "start": "sucrase-node src/main/server.ts",
+    "build": "rimraf dist && tsc",
+    "start": "node dist/main/server.js",
+    "dev": "sucrase-node src/main/server.ts",
     "test": "jest --passWithNoTests --silent --noStackTrace --runInBand --detectOpenHandles",
     "test:verbose": "jest --passWithNoTests --runInBand",
     "test:unit": "npm test -- --watch -c jest-unit-config.ts",
@@ -42,6 +44,7 @@
     "jest": "^27.0.6",
     "lint-staged": "^11.0.0",
     "prettier": "^2.3.2",
+    "rimraf": "^3.0.2",
     "sucrase": "^3.20.0",
     "ts-jest": "^27.0.3",
     "ts-node": "^10.0.0",
@@ -50,7 +53,6 @@
   "dependencies": {
     "bcrypt": "^5.0.1",
     "express": "^4.17.1",
-    "fast-glob": "^3.2.6",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.10",
     "supertest": "^6.1.3",
