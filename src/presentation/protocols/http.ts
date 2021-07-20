@@ -1,8 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface HttpResponse {
   statusCode: number
-  body: unknown
+  body: any
 }
 
 export interface HttpRequest {
-  body?: unknown
+  body?: any
 }
