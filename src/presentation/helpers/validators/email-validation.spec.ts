@@ -4,7 +4,7 @@ import { EmailValidation } from "./email-validation"
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
-    isValid(email: string): boolean {
+    isValid(): boolean {
       return true
     }
   }

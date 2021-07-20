@@ -8,7 +8,7 @@ import {
 
 const makeHasher = (): Hasher => {
   class HasherStub implements Hasher {
-    async hash(value: string): Promise<string> {
+    async hash(): Promise<string> {
       return new Promise((resolve) => resolve("hashed_password"))
     }
   }
@@ -25,7 +25,7 @@ const makeFakeAccount = (): AccountModel => ({
 
 const makeAddAccountRepository = (): AddAccountRepository => {
   class AddAccountRepositoryStub implements AddAccountRepository {
-    async add(accountData: AddAccountModel): Promise<AccountModel> {
+    async add(): Promise<AccountModel> {
       return new Promise((resolve) => resolve(makeFakeAccount()))
     }
   }

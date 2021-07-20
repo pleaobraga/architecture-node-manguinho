@@ -1,10 +1,10 @@
 import { AccountModel } from "../../../domain/models/accounts"
 import { ServerError, MissingParamError } from "../../errors"
 import { badRequest, ok, serverError } from "../../helpers/http/http-helper"
-import { Validation } from "../../protocols/validation"
 import { HttpRequest } from "../../protocols"
+import { Validation } from "../../protocols/validation"
 import { SignUpController } from "./signup-controller"
-import { AddAccount, AddAccountModel } from "./signup-controller-protocols"
+import { AddAccount } from "./signup-controller-protocols"
 
 const makeFakeAccount = (): AccountModel => ({
   id: "valid_id",
@@ -15,7 +15,7 @@ const makeFakeAccount = (): AccountModel => ({
 
 const makeAddAccount = (): AddAccount => {
   class AddAccountStub implements AddAccount {
-    async add(account: AddAccountModel): Promise<AccountModel> {
+    async add(): Promise<AccountModel> {
       return new Promise((resolve) => resolve(makeFakeAccount()))
     }
   }
@@ -24,7 +24,7 @@ const makeAddAccount = (): AddAccount => {
 
 const makeValidation = (): Validation => {
   class ValidationStub implements Validation {
-    validate(input: any): Error {
+    validate(): Error {
       return null
     }
   }

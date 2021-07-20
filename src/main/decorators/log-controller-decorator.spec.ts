@@ -17,7 +17,7 @@ const makeFakeAccount = (): AccountModel => ({
 
 const makeController = (): Controller => {
   class ControllerStub implements Controller {
-    async handle(httpRequest: HttpRequest): Promise<HttpResponse> {
+    async handle(): Promise<HttpResponse> {
       return new Promise((resolve) => resolve(ok(makeFakeAccount)))
     }
   }
@@ -27,7 +27,7 @@ const makeController = (): Controller => {
 
 const makeLogErrorRepository = (): LogErrorRepository => {
   class LogErrorRepositoryStub implements LogErrorRepository {
-    async logError(stack: string): Promise<void> {
+    async logError(): Promise<void> {
       return new Promise((resolve) => resolve())
     }
   }

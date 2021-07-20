@@ -1,5 +1,4 @@
-import { AuthenticationModel } from "../../../domain/usecases/authentication"
-import { InvalidParamError, MissingParamError } from "../../errors"
+import { MissingParamError } from "../../errors"
 import {
   badRequest,
   ok,
@@ -15,7 +14,7 @@ import {
 
 const makeValidation = (): Validation => {
   class ValidationStub implements Validation {
-    validate(input: any): Error {
+    validate(): Error {
       return null
     }
   }
@@ -24,7 +23,7 @@ const makeValidation = (): Validation => {
 
 const makeAuthentication = (): Authentication => {
   class AuthenticationStub implements Authentication {
-    async auth(authentication: AuthenticationModel): Promise<string> {
+    async auth(): Promise<string> {
       return "any_token"
     }
   }

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import { Collection, MongoClient } from "mongodb"
 
 export const MongoHelper = {
@@ -24,7 +26,7 @@ export const MongoHelper = {
     return this.client.db().collection(name)
   },
 
-  map(collection: any): any {
+  map(collection: any): unknown {
     const { _id, ...collectionWithoutId } = collection
     return { ...collectionWithoutId, id: _id }
   },

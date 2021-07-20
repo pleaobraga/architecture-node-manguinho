@@ -11,7 +11,8 @@
     "test:unit": "npm test -- --watch -c jest-unit-config.ts",
     "test:integration": "npm test -- --watch -c jest-integration-config.ts",
     "test:staged": "npm test -- --findRelatedTest",
-    "test:ci": "npm test -- --coverage"
+    "test:ci": "npm test -- --coverage",
+    "lint": "eslint 'src/**' --fix"
   },
   "keywords": [],
   "author": "",
