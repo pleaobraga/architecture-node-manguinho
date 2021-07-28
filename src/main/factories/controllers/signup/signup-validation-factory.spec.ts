@@ -1,15 +1,15 @@
 /* eslint-disable no-restricted-syntax */
+import { Validation } from "../../../../presentation/protocols/validation"
+import { EmailValidator } from "../../../../validation/protocols/email-validator"
 import {
   CompareFieldsValidation,
   EmailValidation,
   RequiredFieldValidation,
-} from "../../../../presentation/helpers/validators"
-import { ValidationComposite } from "../../../../presentation/helpers/validators/validation-composite"
-import { EmailValidator } from "../../../../presentation/protocols/email-validator"
-import { Validation } from "../../../../presentation/protocols/validation"
+} from "../../../../validation/validators"
+import { ValidationComposite } from "../../../../validation/validators/validation-composite"
 import { makeSignUpValidation } from "./signup-validation-factory"
 
-jest.mock("../../../../presentation/helpers/validators/validation-composite")
+jest.mock("../../../../validation/validators/validation-composite")
 
 const makeEmailValidator = (): EmailValidator => {
   class EmailValidatorStub implements EmailValidator {
