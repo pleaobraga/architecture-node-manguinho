@@ -1,13 +1,17 @@
-import { AccountModel } from "../../../domain/models/accounts"
-import { ServerError, MissingParamError, EmailInUseError } from "../../errors"
+import { AccountModel } from "../../../../domain/models/accounts"
+import {
+  ServerError,
+  MissingParamError,
+  EmailInUseError,
+} from "../../../errors"
 import {
   badRequest,
   forbidden,
   ok,
   serverError,
-} from "../../helpers/http/http-helper"
-import { HttpRequest } from "../../protocols"
-import { Validation } from "../../protocols/validation"
+} from "../../../helpers/http/http-helper"
+import { HttpRequest } from "../../../protocols"
+import { Validation } from "../../../protocols/validation"
 import { SignUpController } from "./signup-controller"
 import { AddAccount, Authentication } from "./signup-controller-protocols"
 
